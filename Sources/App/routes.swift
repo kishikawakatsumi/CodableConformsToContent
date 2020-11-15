@@ -1,4 +1,5 @@
 import Vapor
+import LanguageServerProtocol
 
 func routes(_ app: Application) throws {
     app.get { req in
@@ -9,3 +10,8 @@ func routes(_ app: Application) throws {
         return "Hello, world!"
     }
 }
+
+extension InitializeRequest.Response: Content {}
+extension DocumentSymbolRequest.Response: Content {}
+extension CompletionRequest.Response: Content {}
+extension CompletionItem: Content {}
